@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="android.view.View"/>
+
+        <variable
+            name="viewModel"
+            type="science.involta.crypto.ui.chart.ChartViewModel"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/chartMainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="0dp"
+            android:layout_height="?attr/actionBarSize"
+            style="@style/Widget.Custom.Toolbar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <ImageView
+            android:id="@+id/coinImageView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/coinNameTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Bitcoin"
+            android:textStyle="bold"
+            android:textSize="22sp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            app:layout_constraintStart_toEndOf="@id/coinImageView"
+            app:layout_constraintTop_toTopOf="@id/coinImageView"
+            app:layout_constraintEnd_toStartOf="@id/coinPriceTextView"/>
+
+        <TextView
+            android:id="@+id/coinSymbolTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#616161"
+            app:layout_constraintStart_toStartOf="@id/coinNameTextView"
+            app:layout_constraintTop_toBottomOf="@id/coinNameTextView"
+            android:text="BTC"/>
+
+        <TextView
+            android:id="@+id/coinPriceTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/coinImageView"
+            android:text="123.456"/>
+
+        <TextView
+            android:id="@+id/coinChangeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginBottom="2dp"
+            app:layout_constraintEnd_toEndOf="@id/coinPriceTextView"
+            app:layout_constraintTop_toBottomOf="@id/coinPriceTextView"
+            android:drawableStart="@drawable/baseline_arrow_upward"
+            android:text="+123.456"
+            android:textColor="@color/green"/>
+
+        <include
+            android:id="@+id/lineChartLayout"
+            layout="@layout/item_line_chart"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="30dp"
+            android:visibility="@{(viewModel.isLoading &amp;&amp; !viewModel.dataError) ? View.GONE : View.VISIBLE}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/coinChangeTextView"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <ProgressBar
+            android:id="@+id/coinLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"
+            app:layout_constraintTop_toTopOf="@id/lineChartLayout"
+            app:layout_constraintBottom_toBottomOf="@id/lineChartLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

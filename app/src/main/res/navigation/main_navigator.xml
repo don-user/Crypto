@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigator"
+    app:startDestination="@id/navigation_coins_list">
+    <fragment
+        android:id="@+id/navigation_coins_list"
+        android:name="science.involta.crypto.ui.main.coinList.CoinListFragment"
+        android:label="@string/coins"
+        tools:layout="@layout/fragment_coin_list"/>
+
+    <fragment
+        android:id="@+id/navigation_favourites"
+        android:name="science.involta.crypto.ui.main.favorites.FavouritesFragment"
+        android:label="@string/favourites"
+        tools:layout="@layout/fragment_favourites"/>
+</navigation>

@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Crypto</string>
+
+    <string name="coins">Список валют</string>
+    <string name="favourites">Избранное</string>
+
+    <string name="hello_favourites_fragment">Hello Favorites Fragment</string>
+    <string name="hello_coin_list_fragment">Hello Coin List Fragment</string>
+    <string name="error_load_coins_list">Не удалось получить список валют. Пожалуйста попробуйте еще раз.</string>
+    <string name="error_empty_favorites">Вы еще не добавили избранное</string>
+</resources>

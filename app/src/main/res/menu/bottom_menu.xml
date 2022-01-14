@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_coins_list"
+        android:icon="@drawable/baseline_view_list"
+        android:title="@string/coins"/>
+
+    <item
+        android:id="@+id/navigation_favourites"
+        android:icon="@drawable/baseline_favorite"
+        android:title="@string/favourites"/>
+</menu>
